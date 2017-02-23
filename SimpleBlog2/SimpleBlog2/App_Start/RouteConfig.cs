@@ -13,11 +13,10 @@ namespace SimpleBlog2
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" });
+            routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
+
+
         }
     }
 }
