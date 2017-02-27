@@ -10,7 +10,7 @@ namespace SimpleBlog2
     {
         public ActionResult Index()
         {
-            return Content("Hello World");
+            return View();
         }
     }
 }

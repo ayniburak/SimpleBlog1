@@ -25,5 +25,10 @@ namespace SimpleBlog2.Areas.Admin.Controllers
         {
             return Content("Admin Area Users Controller brk Action : " + id.ToString());//bunların içeriğini biz yazıyoruz
         }
+        public ActionResult okn(int id = 0)
+        {
+            return Content("Admin Area Users Controller okn Action : " + id.ToString());//bunların içeriğini biz yazıyoruz
+        }
+       
     }
 }

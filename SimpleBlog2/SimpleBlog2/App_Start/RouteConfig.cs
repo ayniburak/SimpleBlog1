@@ -12,9 +12,10 @@ namespace SimpleBlog2
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" });
-            routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
+            var namespaces = new[] { typeof(PostsController).Namespace };
+            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" },namespaces);
+            //routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" },new[]{"SimpleBlog2.Controllers"}); böyle yaparsakda olur namespaces tanımlamaya gerek kalmaz(birden fazla şeyde yan yana tanımlanabilir.)
+            routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" },namespaces);
 
 
         }
