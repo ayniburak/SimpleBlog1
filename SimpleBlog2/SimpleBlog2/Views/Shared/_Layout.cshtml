@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Simple Blog</title>
+    <!--bu style yazının alt cizgisini ve üstüne gelince renk degismesini saglıyor-->
+    <style>
+        a {
+            color :#b200ff;
+            text-decoration:none;
+        }
+        a:hover {
+            color:#000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+        <a href="@Url.RouteUrl("Home")">Simple Blog</a>
+        </h1>
+        <a href="@Url.RouteUrl("Login")">Login</a>
+    </header>
+    
+    @RenderBody()
+    <!-- footer i en alta yaz renderin altına ki en altta çıksın üstüne yazarsan görüntü çirkin oluyor.-->
+    <footer>
+        &copy; @DateTime.Now.Year 
+    </footer>
+    @RenderSection("Scripts",false)
+</body>
+</html>

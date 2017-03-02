@@ -1,43 +1,11 @@
-﻿
-@{
-    Layout = null;
+﻿@{ 
+    ViewBag.Title = "Home Page";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body style="background-color:#098e82">
-    <div style="width:75%;height:50px;background-color:gainsboro;"> 
-       <h1> Hello World,                     I'am Started HTML</h1>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="http://www.webtekno.com/"> Webtekno</a>
-
-        <a href="login"> Click Here</a> to login
+<h1> Posts Index</h1>
         
-        <h1> Posts Index</h1>
-        @if (true)
-        {
-            <p>True is True</p>
-        }
-        @if (true)
-        {
-            <text> True Text</text> 
-        }
-        @if (true)
-        {
-            @:True third
-        }
-        @for (int i = 0; i < 50; i++)
-        {
-
-            <p>@i</p>
-            <br />
-        }
+@section Scripts{
+    <script>alert("Hello World")</script>
+    }
         
-    </div>
-</body>
-</html>
+  
+
