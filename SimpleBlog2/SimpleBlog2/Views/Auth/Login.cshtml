@@ -4,8 +4,10 @@
     }
 <h1>This is the Login View !</h1>
 
+
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary()
 <div>
     @Html.LabelFor(x => x.Username)
     @Html.EditorFor(x => x.Username)
