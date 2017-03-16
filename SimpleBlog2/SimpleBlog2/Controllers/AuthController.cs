@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SimpleBlog2.Controllers
 {
@@ -26,8 +27,9 @@ namespace SimpleBlog2.Controllers
             if (form.Username.Length < 5)
             {
                 ModelState.AddModelError("Username","Username must be 5 characters at least");
-                return View(form);
+                return View(form); 
             }
+            FormsAuthentication.SetAuthCookie(form.Username, true);
             return Content("The form is valid");
         }
     }
