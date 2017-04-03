@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Web.Optimization;
 @{
     Layout = null;
 }
@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Simple Blog</title>
     <!--bu style yazının alt cizgisini ve üstüne gelince renk degismesini saglıyor-->
+    @Styles.Render("~/styles");
     <style>
         a {
             color :#b200ff;

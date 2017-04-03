@@ -135,4 +135,10 @@ C:\Users\L20805\Desktop\Yeni klasör\SimpleBlog2\SimpleBlog2\bin\System.Web.Mvc.
 C:\Users\L20805\Desktop\Yeni klasör\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.csprojResolveAssemblyReference.cache
 C:\Users\L20805\Desktop\Yeni klasör\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.dll
 C:\Users\L20805\Desktop\Yeni klasör\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.pdb
-C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.csprojResolveAssemblyReference.cache
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Antlr3.Runtime.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Newtonsoft.Json.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\System.Web.Optimization.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\WebGrease.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Antlr3.Runtime.pdb
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Newtonsoft.Json.xml
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\System.Web.Optimization.xml
