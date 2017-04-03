@@ -17,7 +17,7 @@ namespace SimpleBlog2.Controllers
         }
 
         [HttpPost] //bunun varlıgı altındaki fonksiyonun post olduğu zaman çalışacağını belirler.
-        public ActionResult Login(AuthLogin form) //bu post isteği yukarıdaki http kısmından form getirmesini saglıyor
+        public ActionResult Login(AuthLogin form,string returnUrl) //bu post isteği yukarıdaki http kısmından form getirmesini saglıyor
         {
             //return Content("Hi "+form.Username+" - your password : " + form.Password); 13.03.17 dersinde kaldırıldı view e döndürüldü
             if (!ModelState.IsValid)
@@ -30,7 +30,20 @@ namespace SimpleBlog2.Controllers
                 return View(form); 
             }
             FormsAuthentication.SetAuthCookie(form.Username, true);
+            if (!string.IsNullOrWhiteSpace(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToRoute("Home");
+            }
             return Content("The form is valid");
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("Home");
         }
     }
 }   
