@@ -25,6 +25,7 @@
     <header>
         <h1>
         <a href="@Url.RouteUrl("Home")">Simple Blog</a>
+            <i class="glyphicon glyphicon-alert"></i>
         </h1>
         @if (User.Identity.IsAuthenticated)
         {
@@ -47,6 +48,7 @@
     <footer>
         &copy; @DateTime.Now.Year 
     </footer>
+    @Scripts.Render("~/scripts")
     @RenderSection("Scripts",false)
 </body>
 </html>

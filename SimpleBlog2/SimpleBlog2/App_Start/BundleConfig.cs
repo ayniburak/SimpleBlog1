@@ -18,6 +18,19 @@ namespace SimpleBlog2.App_Start
             bundles.Add(new StyleBundle("~/styles")
                .Include("~/content/styles/bootstrap.css")
                .Include("~/content/styles/site.css"));
+
+            bundles.Add(new StyleBundle("~/admin/scripts")
+                .Include("~/scripts/jquery-3.1.1.js")
+                .Include("~/scripts/jquery.validate.js")
+                .Include("~/scripts/jquery.validate.unobtrusive.js")
+                .Include("~/scripts/bootstrap.js"));
+
+            bundles.Add(new StyleBundle("~/scripts")
+                .Include("~/scripts/jquery-3.1.1.js")
+                .Include("~/scripts/jquery.validate.js")
+                .Include("~/scripts/jquery.validate.unobtrusive.js")
+                .Include("~/scripts/bootstrap.js"));
+
         }
     }
 }
