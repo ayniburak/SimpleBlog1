@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Infrastructure\RoleProvider.cs" />
     <Compile Include="Infrastructure\SelectedTabAttribute.cs" />
+    <Compile Include="Migrations\_001_Users_And_Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Auth.cs" />
   </ItemGroup>
