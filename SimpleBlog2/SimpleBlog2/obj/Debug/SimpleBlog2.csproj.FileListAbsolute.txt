@@ -146,4 +146,8 @@ C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\FluentMigrator
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\MySql.Data.dll
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\FluentMigrator.pdb
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\FluentMigrator.xml
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Iesi.Collections.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\NHibernate.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\Iesi.Collections.xml
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\NHibernate.xml
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.csprojResolveAssemblyReference.cache
