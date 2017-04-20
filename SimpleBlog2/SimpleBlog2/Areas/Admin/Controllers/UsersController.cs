@@ -1,4 +1,7 @@
-﻿using SimpleBlog2.Infrastructure;
+﻿using NHibernate.Linq;
+using SimpleBlog2.Areas.Admin.ViewModels;
+using SimpleBlog2.Infrastructure;
+using SimpleBlog2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +17,8 @@ namespace SimpleBlog2.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return View();
+            var users = Database.Session.Query<User>();
+            return View(new UsersIndex() { Users = users });
         }
         public ActionResult List()
         {
