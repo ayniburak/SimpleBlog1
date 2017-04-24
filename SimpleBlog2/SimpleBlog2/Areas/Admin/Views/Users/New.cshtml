@@ -1,0 +1,24 @@
+﻿@model SimpleBlog2.Areas.Admin.ViewModels.UsersNew
+    <h1>Create New User</h1>
+@using (Html.BeginForm())
+{
+@Html.ValidationSummary()
+
+<div class="form-group">
+    @Html.LabelFor(p=>p.Username)
+    @Html.TextBoxFor(p=>p.Username,new {@class="form-control"})
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(p => p.Email)
+    @Html.TextBoxFor(p => p.Email, new { @class = "form-control", type="email" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(p => p.Password)
+    @Html.PasswordFor(p => p.Password, new { @class = "form-control" })
+</div>
+    
+    <input type="submit" value="Create User" class="btn btn-primary" />
+    <a href="@Url.Action("index")">or cancel</a>
+}

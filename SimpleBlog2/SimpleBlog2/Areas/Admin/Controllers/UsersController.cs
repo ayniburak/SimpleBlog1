@@ -36,6 +36,30 @@ namespace SimpleBlog2.Areas.Admin.Controllers
         {
             return Content("Admin Area Users Controller okn Action : " + id.ToString());//bunların içeriğini biz yazıyoruz
         }
-       
+
+        public ActionResult New()
+        {
+            return View(new UsersNew() { });
+        }
+        [HttpPost]
+        public ActionResult New(UsersNew form)
+        {
+            if (Database.Session.Query<User>().Any(p => p.Username == form.Username))
+            {
+                ModelState.AddModelError("Username", "Username must be unique");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View(form);
+            }
+            var user = new User()
+            {
+                Username = form.Username,
+                Email = form.Email
+            };
+            user.SetPassword(form.Password);
+            Database.Session.Save(user);
+            return RedirectToAction("index");
+        }
     }
 }
