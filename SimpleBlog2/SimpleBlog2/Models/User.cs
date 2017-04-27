@@ -16,7 +16,7 @@ namespace SimpleBlog2.Models
 
         public virtual void SetPassword(string password)
         {
-            PasswordHash = "IGNORE";
+            PasswordHash = DateTime.Now.ToString();
         }
     }
     public class UserMap:ClassMapping<User>
