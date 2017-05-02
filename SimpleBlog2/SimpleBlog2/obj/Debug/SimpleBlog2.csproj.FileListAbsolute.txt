@@ -150,3 +150,6 @@ C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\System.Web.Hel
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\System.Web.Mvc.xml
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.dll
 C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\obj\Debug\SimpleBlog2.pdb
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\BCrypt.Net.dll
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\BCrypt.Net.pdb
+C:\Users\L20805\Documents\SimpleBlog1\SimpleBlog2\SimpleBlog2\bin\BCrypt.Net.xml

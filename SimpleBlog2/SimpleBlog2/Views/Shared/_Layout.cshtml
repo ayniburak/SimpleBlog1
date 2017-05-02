@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Simple Blog</title>
     <!--bu style yazının alt cizgisini ve üstüne gelince renk degismesini saglıyor-->
-    @Styles.Render("~/styles");
+    @Styles.Render("~/styles")
     <style>
         a {
             color :#b200ff;
@@ -29,7 +29,7 @@
         </h1>
         @if (User.Identity.IsAuthenticated)
         {
-            <p>Welcome back @User.Identity.Name</p>
+            <p>Welcome back @Auth.User.Email</p>
             <a href="@Url.RouteUrl("Logout")">Logout</a>
             if (User.IsInRole("admin"))
             {

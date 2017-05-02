@@ -13,10 +13,22 @@ namespace SimpleBlog2.Models
         public virtual string Username { get; set; }
         public virtual string Email { get; set; }
         public virtual String PasswordHash { get; set; }
-
+        public virtual IList<Role> Roles { get; set; }
+        public User()
+        {
+            Roles = new List<Role>();
+        }
         public virtual void SetPassword(string password)
         {
-            PasswordHash = DateTime.Now.ToString();
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password, 13); 
+        }
+        public virtual Boolean CheckPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
+        }
+        public static void FakeHash()
+        {
+            BCrypt.Net.BCrypt.HashPassword("", 13);
         }
     }
     public class UserMap:ClassMapping<User>
@@ -32,6 +44,11 @@ namespace SimpleBlog2.Models
                    x.NotNullable(true);
                    x.Column("password_hash");//isim tutmuyor büyük kücük mühim degil ama _ var
             });
+            Bag(x => x.Roles, x =>
+            {
+                x.Table("role_users");
+                x.Key(k => k.Column("user_id"));
+            }, x => x.ManyToMany(k => k.Column("role_id")));
         }
 
 

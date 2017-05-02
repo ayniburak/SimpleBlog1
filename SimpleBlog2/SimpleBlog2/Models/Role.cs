@@ -20,6 +20,8 @@ namespace SimpleBlog2.Models
             Table("roles");
             Id(x => x.Id, x => x.Generator(Generators.Identity));
             Property(x => x.Name, x => x.NotNullable(true));
+
+            
         }
     }
 }

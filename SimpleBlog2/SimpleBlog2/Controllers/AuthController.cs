@@ -1,4 +1,6 @@
-﻿using SimpleBlog2.ViewModels;
+﻿using NHibernate.Linq;
+using SimpleBlog2.Models;
+using SimpleBlog2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,17 @@ namespace SimpleBlog2.Controllers
         [HttpPost] //bunun varlıgı altındaki fonksiyonun post olduğu zaman çalışacağını belirler.
         public ActionResult Login(AuthLogin form,string returnUrl) //bu post isteği yukarıdaki http kısmından form getirmesini saglıyor
         {
+
+            var user = Database.Session.Query<User>().FirstOrDefault(u => u.Username == form.Username);
+            if (user == null)
+            {
+                SimpleBlog2.Models.User.FakeHash();
+            }
+            if (user == null || !user.CheckPassword(form.Password))
+            {
+                ModelState.AddModelError("Username", "Username or password is invalid !");
+
+            }
             //return Content("Hi "+form.Username+" - your password : " + form.Password); 13.03.17 dersinde kaldırıldı view e döndürüldü
             if (!ModelState.IsValid)
             {
