@@ -4,16 +4,34 @@ using SimpleBlog2.Infrastructure;
 using SimpleBlog2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SimpleBlog2.Areas.Admin.Controllers
 {
+    
     [Authorize(Roles = "admin")]
     [SelectedTabAttribute("users")]
     public class UsersController : Controller
     {
+        private void SyncRoles(IList<RoleCheckBox> checkBoxes, IList<Role> roles)
+        {
+            var selectedRoles = new List<Role>();
+            foreach (var role in Database.Session.Query<Role>())
+            {
+                var checkBox = checkBoxes.Single(c => c.Id == role.Id);
+                checkBox.Name = role.Name;
+                if (checkBox.IsChecked)
+                    selectedRoles.Add(role);
+            }
+            foreach (var toAdd in selectedRoles.Where(t => !roles.Contains(t)))
+                roles.Add(toAdd);
+            foreach (var toRemove in roles.Where(t => !selectedRoles.Contains(t)).ToList())
+                roles.Remove(toRemove);
+        }
         // GET: Admin/Users
         public ActionResult Index()
         {
@@ -36,7 +54,16 @@ namespace SimpleBlog2.Areas.Admin.Controllers
 
         public ActionResult New()
         {
-            return View(new UsersNew() { });
+            return View(new UsersNew()
+            {
+                Roles = Database.Session.Query<Role>().Select(role => new RoleCheckBox
+                {
+                    Id = role.Id,
+                    IsChecked=false,
+                    Name = role.Name
+                }).ToList()
+                
+            });
         }
         [HttpPost]
         public ActionResult New(UsersNew form)
@@ -54,6 +81,7 @@ namespace SimpleBlog2.Areas.Admin.Controllers
                 Username = form.Username,
                 Email = form.Email
             };
+            SyncRoles(form.Roles, user.Roles);
             user.SetPassword(form.Password);
             Database.Session.Save(user);
             return RedirectToAction("index");
@@ -67,7 +95,16 @@ namespace SimpleBlog2.Areas.Admin.Controllers
             }
             return View(new UsersEdit() {
                 Username = user.Username,
-            Email=user.Email});
+                Email = user.Email,
+            Roles = Database.Session.Query<Role>().Select(role =>  new RoleCheckBox
+            {
+                Id = role.Id,
+                IsChecked =user.Roles.Contains(role),
+                Name = role.Name
+            }).ToList()
+            });
+            
+            
         }
         [HttpPost]
         public ActionResult Edit(int id,UsersEdit form)
@@ -93,7 +130,7 @@ namespace SimpleBlog2.Areas.Admin.Controllers
             //    Username = form.Username,
             //    Email = form.Email
             //};
-            
+            SyncRoles(form.Roles, user.Roles);
             Database.Session.Update(user);
             Database.Session.Flush();
             return RedirectToAction("index");

@@ -9,9 +9,7 @@ namespace SimpleBlog2.Infrastructure
     {
         public override string[] GetRolesForUser(string username) //bizim için önemli olan bu
         {
-            if(username=="admin")  /*tek satır if de gerek yok paranteze*/
-                return new string[] { "admin" };
-            return new string[] { };
+            return Auth.User.Roles.Select(p => p.Name).ToArray();
         }
 
         public override string ApplicationName
