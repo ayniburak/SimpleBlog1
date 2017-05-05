@@ -22,6 +22,8 @@ namespace SimpleBlog2
             var mapper = new ModelMapper();
             mapper.AddMapping<UserMap>();
             mapper.AddMapping<RoleMap>();
+            mapper.AddMapping<TagMap>();
+            mapper.AddMapping<PostMap>();
             config.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());
             //add mapping
             _sessionFactory = config.BuildSessionFactory();
