@@ -54,12 +54,12 @@ namespace SimpleBlog2.Infrastructure
         }
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return _currentItems.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
