@@ -30,5 +30,64 @@ namespace SimpleBlog2.Areas.Admin.Controllers
             });
 
         }
+        public ActionResult New()
+        {
+            return View("Form", new PostsForm() { IsNew = true });
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View("Form", new PostsForm() { IsNew = false, PostId = post.Id, Tittle = post.Title, Content = post.Content, Slug = post.Slug });
+        }
+
+        [HttpPost]
+        public ActionResult Form(PostsForm form)
+        {
+            form.IsNew = form.PostId == null;
+
+            if (!ModelState.IsValid)
+                return View(form);
+
+            Post post;
+
+            if (form.IsNew)
+            {
+                post = new Post()
+                {
+                    Title = form.Tittle,
+                    Slug = form.Slug,
+                    Content = form.Content,
+                    CreatedAt = DateTime.UtcNow,
+                    User = Auth.User
+
+                };
+            }
+            else
+            {
+                post = Database.Session.Load<Post>(form.PostId);
+
+                if (post == null)
+                {
+                    return HttpNotFound();
+                }
+
+                post.Title = form.Tittle;
+                post.Slug = form.Slug;
+                post.Content = form.Content;
+                post.UpdatedAt = DateTime.UtcNow;
+            }
+
+            Database.Session.SaveOrUpdate(post);
+
+            Database.Session.Flush();
+            return RedirectToAction("Index");
+        }
     }
 }
