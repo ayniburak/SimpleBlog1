@@ -60,6 +60,7 @@
                 <td>@String.Join(",",post.Tags.Select(p=>p.Name))</td>
                 <td>@post.CreatedAt</td>
                 <td>
+                    <a href="@Url.Action("edit",new {post.Id })" class="btn btn-primary btn-xs">Edit</a>
                     @if (!post.IsDeleted)
                     {
                         <div class="btn-group btn-group-xs">
