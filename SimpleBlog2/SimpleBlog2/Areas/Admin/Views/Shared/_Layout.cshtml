@@ -29,5 +29,6 @@ if (ViewBag.SelectedTab == tabName)
     <h1>Our ViewBag Selected Tab Attribute : @ViewBag.SelectedTab</h1>
    
     @Scripts.Render("~/admin/scripts")
+    @RenderSection("Scripts",false)
 </body>
 </html>

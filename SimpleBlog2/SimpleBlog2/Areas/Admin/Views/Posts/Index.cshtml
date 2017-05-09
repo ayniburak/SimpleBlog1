@@ -60,17 +60,18 @@
                 <td>@String.Join(",",post.Tags.Select(p=>p.Name))</td>
                 <td>@post.CreatedAt</td>
                 <td>
-                    <a href="@Url.Action("edit",new {post.Id })" class="btn btn-primary btn-xs">Edit</a>
+                   
                     @if (!post.IsDeleted)
                     {
                         <div class="btn-group btn-group-xs">
-                            <a href="#" class="btn btn-danger">
+                            <a href="@Url.Action("edit",new {post.Id })" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i>Edit</a>
+                            <a href="@Url.Action("trash",new { post.Id})" class="btn btn-danger">
                                 <i class="glyphicon glyphicon-remove"></i>Trash
                             </a>
                             <a href="#" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="@Url.Action("delete",new { post.Id})">
                                         <i class="glyphicon glyphicon-remove "></i>delete
                                     </a>
                                 </li>
@@ -79,7 +80,7 @@
                     }
                     else
                     {
-                        <a href="#" class="btn btn-xs btn-success">
+                        <a href="@Url.Action("restore",new { post.Id})" class="btn btn-xs btn-success">
                             <i class="glyphicon glyphicon-plus-sign"></i>restore
                         </a>
                     }
